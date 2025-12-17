@@ -1,0 +1,643 @@
+:root {
+    --hero-bg: url('https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Landing%20page%20V2.png');
+    --second-bg: url('https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Black%20background.png');
+}
+
+/* Base */
+html, body { 
+    background: #000 !important; 
+    margin: 0; 
+    padding: 0; 
+    overflow-x: hidden; 
+    scroll-behavior: smooth;
+}
+
+/* Scroll container for smooth scrolling */
+.scroll-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Hero section - each section maintains its natural aspect ratio */
+.hero-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* First background */
+.hero {
+    background: #000 var(--hero-bg) no-repeat top center;
+    background-size: 100% auto;
+    width: 100%;
+    aspect-ratio: 1440 / 900;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Second background - short black section */
+.hero-second {
+    background: #000 var(--second-bg) no-repeat top center;
+    background-size: 100% auto;
+    width: 100%;
+    height: 15vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Bottom fade for second page - fades to black */
+.hero-second::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(to top, 
+        rgba(0, 0, 0, 1) 0%, 
+        rgba(0, 0, 0, 1) 10%, 
+        rgba(0, 0, 0, 0.95) 20%, 
+        rgba(0, 0, 0, 0.85) 30%, 
+        rgba(0, 0, 0, 0.7) 40%, 
+        rgba(0, 0, 0, 0.5) 50%, 
+        rgba(0, 0, 0, 0.3) 60%, 
+        rgba(0, 0, 0, 0.15) 70%, 
+        rgba(0, 0, 0, 0.05) 80%, 
+        transparent 90%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Third background - video section */
+.hero-third {
+    background: #000;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background video styling */
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 1;
+    pointer-events: none;
+}
+
+/* Top fade for video section - fades from black */
+.hero-third::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20vh;
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 1) 0%, 
+        rgba(0, 0, 0, 1) 10%, 
+        rgba(0, 0, 0, 0.95) 20%, 
+        rgba(0, 0, 0, 0.85) 30%, 
+        rgba(0, 0, 0, 0.7) 40%, 
+        rgba(0, 0, 0, 0.5) 50%, 
+        rgba(0, 0, 0, 0.3) 60%, 
+        rgba(0, 0, 0, 0.15) 70%, 
+        rgba(0, 0, 0, 0.05) 80%, 
+        transparent 90%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Bottom Right Logo */
+.bottom-right-logo {
+    position: absolute;
+    bottom: 1vh;
+    right: 1vw;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.logo-link {
+    pointer-events: all;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.bottom-logo {
+    height: 2vw;
+    min-height: 18px;
+    max-height: 40px;
+    width: auto;
+    opacity: 0.25;
+    filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.15));
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: block;
+}
+
+.bottom-logo:hover {
+    transform: scale(1.05);
+    opacity: 0.4;
+}
+
+/* Phone Number Section */
+.phone-number-section {
+    position: absolute;
+    bottom: 0.8vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    pointer-events: none;
+}
+
+.text-me-asset {
+    height: 1.5vw;
+    min-height: 15px;
+    max-height: 35px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
+    animation: blinkText 6s infinite;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    position: absolute;
+    bottom: 35px;
+    left: -40%;
+    transform: rotate(-15deg);
+}
+
+@keyframes blinkText {
+    0%, 65% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 1;
+    }
+    88% {
+        opacity: 1;
+    }
+    93%, 100% {
+        opacity: 0;
+    }
+}
+
+.phone-number-link {
+    pointer-events: all;
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.phone-number-link:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.phone-number-asset {
+    height: 2.3vw;
+    min-height: 28px;
+    max-height: 65px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
+}
+
+/* Logo overlay - positioned and sized dynamically relative to background image */
+#logo-overlay {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2147483647;
+    pointer-events: none;
+}
+
+/* Logo container - same size as bounds */
+.logo-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Logo image - fixed relative size */
+.logo-image {
+    position: absolute;
+    top: 40%;
+    left: 58%;
+    transform: translate(-50%, -50%) rotate(-1.5deg);
+    width: 510%;
+    height: 510%;
+    background: url("https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/LAnding%20Page%20Logo%20V2.png") no-repeat center/contain;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .hero {
+        background-size: auto 120vh;
+        background-position: 100% 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        transform: scaleX(-1);
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .hero::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        pointer-events: none;
+        z-index: 1;
+    }
+    
+    .hero-second {
+        background-size: auto 120vh;
+        background-position: 100% 100%;
+        height: 15vh;
+        margin: 0;
+        padding: 0;
+        transform: scaleX(-1);
+        position: relative;
+    }
+    
+    .hero-second::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background: linear-gradient(to top, 
+            rgba(0, 0, 0, 1) 0%, 
+            rgba(0, 0, 0, 1) 10%, 
+            rgba(0, 0, 0, 0.95) 20%, 
+            rgba(0, 0, 0, 0.85) 30%, 
+            rgba(0, 0, 0, 0.7) 40%, 
+            rgba(0, 0, 0, 0.5) 50%, 
+            rgba(0, 0, 0, 0.3) 60%, 
+            rgba(0, 0, 0, 0.15) 70%, 
+            rgba(0, 0, 0, 0.05) 80%, 
+            transparent 90%);
+        z-index: 2;
+        pointer-events: none;
+    }
+    
+    .hero-third {
+        height: 100vh;
+    }
+    
+    .background-video {
+        width: 155%;
+        height: 100%;
+        object-fit: cover;
+        left: 0;
+        transform: translateX(-30%);
+    }
+    
+    .hero-third::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 20vh;
+        background: linear-gradient(to bottom, 
+            rgba(0, 0, 0, 1) 0%, 
+            rgba(0, 0, 0, 1) 10%, 
+            rgba(0, 0, 0, 0.95) 20%, 
+            rgba(0, 0, 0, 0.85) 30%, 
+            rgba(0, 0, 0, 0.7) 40%, 
+            rgba(0, 0, 0, 0.5) 50%, 
+            rgba(0, 0, 0, 0.3) 60%, 
+            rgba(0, 0, 0, 0.15) 70%, 
+            rgba(0, 0, 0, 0.05) 80%, 
+            transparent 90%);
+        z-index: 2;
+        pointer-events: none;
+    }
+    
+    .bottom-right-logo {
+        bottom: 1vh;
+        right: 2vw;
+    }
+    
+    .bottom-logo {
+        height: 5vw;
+        min-height: 20px;
+        max-height: 35px;
+    }
+    
+    .phone-number-section {
+        bottom: 0.5vh;
+    }
+    
+    .text-me-asset {
+        height: 3.5vw;
+        min-height: 18px;
+        max-height: 25px;
+        bottom: 40px;
+        left: -35%;
+    }
+    
+    .phone-number-asset {
+        height: 5vw;
+        min-height: 28px;
+        max-height: 45px;
+    }
+    
+    #logo-overlay {
+        /* Let JavaScript handle positioning and sizing on mobile */
+    }
+    
+    .logo-image {
+        /* Let JavaScript handle sizing on mobile */
+    }
+}
+
+/* Top Navigation Assets - Desktop Only */
+.top-nav-assets {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    z-index: 2147483648;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5vw 2.5vw;
+    pointer-events: none;
+}
+
+.left-assets, .right-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.2vw;
+    flex: 1;
+}
+
+.left-assets {
+    justify-content: flex-start;
+}
+
+.right-icons {
+    justify-content: flex-end;
+}
+
+.asset-link, .icon-link {
+    pointer-events: all;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    text-decoration: none;
+}
+
+.asset-link:hover, .icon-link:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.nav-asset {
+    height: 3.6vw;
+    min-height: 20px;
+    max-height: 80px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.3));
+}
+
+.nav-icon {
+    height: 3vw;
+    min-height: 18px;
+    max-height: 70px;
+    width: auto;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.4));
+}
+
+.cbyc-asset {
+    margin-left: -0.1vw;
+}
+
+/* Mobile Menu Button - Hidden on Desktop */
+.mobile-menu-button {
+    display: none;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 2147483649;
+}
+
+/* Mobile-specific positioning */
+@media (max-width: 768px) {
+    .mobile-menu-button {
+        top: 10px;
+        right: 10px;
+        /* Position relative to the actual mobile viewport */
+        transform: none;
+    }
+}
+
+.menu-toggle-btn {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ffff;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s ease;
+    min-width: 45px;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+.menu-icon {
+    height: 35px;
+    width: auto;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.4));
+}
+
+.menu-fallback {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    border: 2px solid #00ffff;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 2147483648;
+    display: flex;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Hide logo and menu button when mobile menu is active */
+body.mobile-menu-open .logo-container,
+body.mobile-menu-open #logo-overlay,
+body.mobile-menu-open #mobile-menu-button-inside {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 40px 0;
+}
+
+/* CBW Assets - Vertical Layout */
+.mobile-assets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin-bottom: 60px;
+    margin-top: -80px;
+}
+
+.mobile-nav-asset {
+    height: calc(12vh + 8vw) !important;
+    min-height: 80px;
+    max-height: 180px;
+    width: auto;
+    filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.5));
+}
+
+/* Social Icons - Horizontal at Bottom */
+.mobile-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.mobile-menu-overlay.active .mobile-icons {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.mobile-nav-icon {
+    height: 35px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+}
+
+.mobile-menu-overlay.active .mobile-assets {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.mobile-menu-overlay.active .mobile-assets .mobile-nav-asset {
+    animation: assetGrowIn 0.4s ease-out 0.4s both;
+}
+
+@keyframes assetGrowIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.mobile-menu-overlay.active .mobile-icons {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.mobile-asset-link, .mobile-icon-link {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    text-decoration: none;
+}
+
+.mobile-asset-link:hover, .mobile-icon-link:hover {
+    transform: scale(1.15);
+    opacity: 0.8;
+}
+
+.mobile-nav-asset {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.4));
+}
+
+.mobile-nav-icon {
+    height: 50px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+}
+
+/* Hide navigation assets on mobile, show mobile menu */
+@media (max-width: 768px) {
+    .top-nav-assets {
+        display: none !important;
+    }
+    
+    .mobile-menu-button {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Clean scrolling experience - no indicators */

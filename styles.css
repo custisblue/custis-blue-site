@@ -436,7 +436,7 @@ html, body {
 
 .support-hover-tooltip {
     position: absolute;
-    bottom: -15px;
+    bottom: -20px;
     right: -40px;
     height: 2vw;
     min-height: 20px;

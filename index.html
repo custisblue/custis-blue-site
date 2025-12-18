@@ -231,5 +231,18 @@
             lastMouseY = mouseY;
         });
     </script>
+    <script>
+        // Phone number link - opens SMS app
+        const phoneNumber = '+12565738531'; // +1 (256) 573-8531
+        const phoneLink = document.getElementById('superphone-link');
+        
+        if (phoneLink) {
+            phoneLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Open SMS app
+                window.location.href = `sms:${phoneNumber}`;
+            });
+        }
+    </script>
 </body>
 </html>

@@ -130,6 +130,94 @@
             </section>
         </section>
     </div>
+    
+    <!-- Subtle Scroll Hint -->
+    <div class="scroll-hint" id="scroll-hint">
+        <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/heart_arrow_asset2.png" alt="Scroll" class="scroll-hint-arrow">
+    </div>
+    
     <script src="script.js"></script>
+    <script>
+        // Hide scroll hint when user scrolls
+        const scrollHint = document.getElementById('scroll-hint');
+        let hasScrolled = false;
+        
+        window.addEventListener('scroll', () => {
+            if (!hasScrolled && window.pageYOffset > 50) {
+                hasScrolled = true;
+                if (scrollHint) {
+                    scrollHint.classList.add('hidden');
+                }
+            }
+        });
+        
+        // Show hint again if user scrolls back to top
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset < 50 && hasScrolled) {
+                hasScrolled = false;
+                if (scrollHint) {
+                    scrollHint.classList.remove('hidden');
+                }
+            }
+        });
+    </script>
+    <script>
+        // Mouse Following Particles
+        let particleId = 0;
+        const particles = [];
+        const maxParticles = 30;
+        let mouseX = 0;
+        let mouseY = 0;
+        let lastMouseX = 0;
+        let lastMouseY = 0;
+        
+        function createMouseParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.className = 'mouse-particle';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            particle.id = 'mouse-particle-' + particleId++;
+            
+            document.body.appendChild(particle);
+            particles.push(particle);
+            
+            // Fade out quickly
+            setTimeout(() => {
+                particle.classList.add('fade');
+            }, 50);
+            
+            // Remove particle after fade
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+                const index = particles.indexOf(particle);
+                if (index > -1) {
+                    particles.splice(index, 1);
+                }
+            }, 450);
+        }
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Calculate mouse movement speed
+            const deltaX = Math.abs(mouseX - lastMouseX);
+            const deltaY = Math.abs(mouseY - lastMouseY);
+            const speed = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+            
+            // Create particles based on movement speed
+            if (speed > 2 && particles.length < maxParticles) {
+                // Add slight random offset for natural trail effect
+                const offsetX = (Math.random() - 0.5) * 8;
+                const offsetY = (Math.random() - 0.5) * 8;
+                createMouseParticle(mouseX + offsetX, mouseY + offsetY);
+            }
+            
+            lastMouseX = mouseX;
+            lastMouseY = mouseY;
+        });
+    </script>
 </body>
 </html>

@@ -60,9 +60,10 @@ html::-webkit-scrollbar {
     display: flex;
     align-items: center;
     justify-content: center;
-    pointer-events: none;
+    pointer-events: all;
     opacity: 0.5;
     transition: opacity 0.5s ease-out;
+    cursor: pointer;
 }
 
 .scroll-hint.hidden {
@@ -88,10 +89,10 @@ html::-webkit-scrollbar {
     }
 }
 
-/* Hide on mobile */
+/* Mobile adjustments for scroll hint */
 @media (max-width: 768px) {
-    .scroll-hint {
-        display: none;
+    .scroll-hint-arrow {
+        height: 35px;
     }
 }
 

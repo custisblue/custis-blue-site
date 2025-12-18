@@ -160,6 +160,18 @@
                 }
             }
         });
+        
+        // Click to scroll to bottom
+        if (scrollHint) {
+            scrollHint.addEventListener('click', () => {
+                window.scrollTo({
+                    top: document.documentElement.scrollHeight,
+                    behavior: 'smooth'
+                });
+                // Hide hint after clicking
+                scrollHint.classList.add('hidden');
+            });
+        }
     </script>
     <script>
         // Mouse Following Particles

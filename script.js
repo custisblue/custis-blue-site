@@ -247,7 +247,7 @@ function setupSmoothScroll() {
 
 // Social Media Links Configuration
 const socialLinks = {
-    music: '/store', // Store coming soon page
+    music: 'https://distrokid.com/hyperfollow/custisblue/the-yearn', // DistroKid HyperFollow page
     support: 'https://ko-fi.com/custisblue', // Support/Ko-fi URL
     store: '/store', // Store coming soon page
     youtube: 'https://www.youtube.com/@Custisblue_', // YouTube channel URL

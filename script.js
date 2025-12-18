@@ -247,9 +247,9 @@ function setupSmoothScroll() {
 
 // Social Media Links Configuration
 const socialLinks = {
-    music: '#', // Add your music platform URL here
-    cbyc: 'https://www.youtube.com/@custisblueyapcast', // CBYC podcast URL
-    store: '#', // Add your store URL here
+    music: 'store.html', // Store coming soon page
+    support: 'https://ko-fi.com/custisblue', // Support/Ko-fi URL
+    store: 'store.html', // Store coming soon page
     youtube: 'https://www.youtube.com/@Custisblue_', // YouTube channel URL
     tiktok: 'https://www.tiktok.com/@custisblue', // TikTok profile URL
     instagram: 'https://www.instagram.com/custisblue/', // Instagram profile URL
@@ -262,8 +262,12 @@ function initializeSocialLinks() {
         const links = document.querySelectorAll(`[data-url="${platform}"]`);
         links.forEach(link => {
             link.href = socialLinks[platform];
-            if (socialLinks[platform] !== '#') {
+            // Only open external links (http:// or https://) in new tabs
+            if (socialLinks[platform] !== '#' && 
+                (socialLinks[platform].startsWith('http://') || socialLinks[platform].startsWith('https://'))) {
                 link.target = '_blank';
+            } else {
+                link.target = '_self'; // Internal links open in same tab
             }
         });
     });

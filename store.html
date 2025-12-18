@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>website created by Custis Blue</title>
+    <title>Store - CVSTIS BLUE</title>
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Heart_shaped_Logo_w_background.png">
     <style>
         * {
@@ -25,21 +25,47 @@
             text-align: center;
         }
         
-        .credits-container {
+        .store-container {
             padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
         }
         
-        h1 {
-            font-size: 0.9rem;
-            margin-bottom: 40px;
+        .coming-soon-text {
+            font-size: 1.5rem;
             color: #ffffff;
             font-weight: normal;
+            text-transform: lowercase;
+        }
+        
+        .phone-number-link-store {
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            margin-top: 40px;
+        }
+        
+        .phone-number-link-store:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        
+        .phone-number-asset {
+            height: 5vw;
+            min-height: 40px;
+            max-height: 80px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
         }
         
         .logo-link {
             display: inline-block;
             text-decoration: none;
             transition: transform 0.3s ease, opacity 0.3s ease;
+            margin-top: 50px;
             position: relative;
         }
         
@@ -122,8 +148,14 @@
         }
         
         @media (max-width: 768px) {
-            h1 {
-                font-size: 0.8rem;
+            .coming-soon-text {
+                font-size: 1.2rem;
+            }
+            
+            .phone-number-asset {
+                height: 8vw;
+                min-height: 50px;
+                max-height: 100px;
             }
             
             .logo-link img {
@@ -150,13 +182,30 @@
     </style>
 </head>
 <body>
-    <div class="credits-container">
-        <h1>website created by Custis Blue.</h1>
+    <div class="store-container">
+        <h1 class="coming-soon-text">coming soon.</h1>
+        <a href="#" id="phone-number-link" class="phone-number-link-store">
+            <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/superphone_asset_number.png" alt="Phone Number" class="phone-number-asset">
+        </a>
         <a href="home.html" class="logo-link">
             <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Heart_shaped_Logo_white.png" alt="CVSTIS BLUE Logo">
             <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/take_me_home_asset.png" alt="Take Me Home" class="take-me-home-asset">
         </a>
     </div>
+    
+    <script>
+        // Phone number
+        const phoneNumber = '+12565738531'; // +1 (256) 573-8531
+        
+        const phoneLink = document.getElementById('phone-number-link');
+        
+        phoneLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Open SMS app
+            window.location.href = `sms:${phoneNumber}`;
+        });
+    </script>
 </body>
 </html>
 

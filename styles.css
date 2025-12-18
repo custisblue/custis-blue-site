@@ -412,7 +412,7 @@ html, body {
 
 .nav-asset {
     height: 3.6vw;
-    min-height: 20px;
+    min-height: 35px;
     max-height: 80px;
     width: auto;
     filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.3));
@@ -420,14 +420,94 @@ html, body {
 
 .nav-icon {
     height: 3vw;
-    min-height: 18px;
+    min-height: 30px;
     max-height: 70px;
     width: auto;
     filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.4));
 }
 
-.cbyc-asset {
-    margin-left: -0.1vw;
+.support-asset {
+    margin-left: 0.1vw;
+}
+
+.support-link {
+    position: relative;
+}
+
+.support-hover-tooltip {
+    position: absolute;
+    bottom: -15px;
+    right: -40px;
+    height: 2vw;
+    min-height: 20px;
+    max-height: 45px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
+    opacity: 0;
+    transform: rotate(-10deg) translateY(5px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.support-link:hover .support-hover-tooltip {
+    opacity: 1;
+    transform: rotate(-10deg) translateY(0);
+}
+
+/* Hide desktop hover tooltip on mobile */
+@media (max-width: 768px) {
+    .support-hover-tooltip {
+        display: none;
+    }
+}
+
+/* Mobile Support Tooltip - Random Appearance */
+.support-link-mobile {
+    position: relative;
+}
+
+.support-mobile-tooltip {
+    position: absolute;
+    bottom: -8px;
+    right: -35px;
+    height: 1.2vw;
+    min-height: 12px;
+    max-height: 28px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
+    animation: blinkSupportMobile 7s infinite;
+    opacity: 0;
+    transform: rotate(-10deg);
+    transition: opacity 1.5s ease-in-out;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+@keyframes blinkSupportMobile {
+    0%, 2% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    52% {
+        opacity: 1;
+    }
+    55%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Mobile specific sizing */
+@media (max-width: 768px) {
+    .support-mobile-tooltip {
+        height: 6vw;
+        min-height: 30px;
+        max-height: 55px;
+        bottom: -5px;
+        right: -50px;
+    }
 }
 
 /* Mobile Menu Button - Hidden on Desktop */

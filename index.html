@@ -5,12 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CVSTIS BLUE</title>
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Heart_shaped_Logo_w_background.png">
-    <script>
-        // Redirect to home.html as the entry point
-        window.location.href = 'home.html';
-    </script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <p>Redirecting to CVSTIS BLUE...</p>
+    <!-- Top Navigation Assets - Desktop Only -->
+    <div class="top-nav-assets">
+        <!-- Left Side Assets -->
+        <div class="left-assets">
+            <a href="#" class="asset-link" data-url="music">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Music%20Asset.png" alt="Music" class="nav-asset">
+            </a>
+            <a href="#" class="asset-link" data-url="store">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Store%20Asset.png" alt="Store" class="nav-asset">
+            </a>
+            <a href="#" class="asset-link support-link" data-url="support">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/support2_asset.png" alt="Support" class="nav-asset support-asset">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/stay_indie_asset.png" alt="Stay Indie" class="support-hover-tooltip">
+            </a>
+        </div>
+        
+        <!-- Right Side Icons -->
+        <div class="right-icons">
+            <a href="#" class="icon-link" data-url="youtube">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20YT%20icon.png" alt="YouTube" class="nav-icon">
+            </a>
+            <a href="#" class="icon-link" data-url="tiktok">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20TT%20icon.png" alt="TikTok" class="nav-icon">
+            </a>
+            <a href="#" class="icon-link" data-url="instagram">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Insta%20icon.png" alt="Instagram" class="nav-icon">
+            </a>
+            <a href="#" class="icon-link" data-url="podcast">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Podcast%20icon.png" alt="Podcast" class="nav-icon">
+            </a>
+        </div>
+        
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+        <!-- Close Button -->
+        <div style="position: absolute; top: 15px; right: -3px; z-index: 999999999;">
+            <button id="close-mobile-menu" style="background: none; border: none; cursor: pointer; padding: 0; transition: transform 0.1s ease;" onclick="closeMobileMenu()">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20X%20button%20icon.png" alt="Close" style="height: 16vw; min-height: 60px; max-height: 120px; width: auto; filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.5));" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; color: #00ffff; font-size: 28px; font-weight: bold; background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 5px; border: 2px solid #00ffff;">✕</div>
+            </button>
+        </div>
+        
+        <div class="mobile-menu-content">
+            <!-- CBW Assets - Horizontal Layout -->
+            <div class="mobile-assets">
+                <a href="#" class="mobile-asset-link" data-url="music">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Music%20Asset.png" alt="Music" class="mobile-nav-asset">
+                </a>
+                <a href="#" class="mobile-asset-link" data-url="store">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Store%20Asset.png" alt="Store" class="mobile-nav-asset">
+                </a>
+                <a href="#" class="mobile-asset-link support-link-mobile" data-url="support">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/support2_asset.png" alt="Support" class="mobile-nav-asset">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/stay_indie_asset.png" alt="Stay Indie" class="support-mobile-tooltip">
+                </a>
+            </div>
+            
+            <!-- Social Icons - Horizontal Layout -->
+            <div class="mobile-icons">
+                <a href="#" class="mobile-icon-link" data-url="youtube">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20YT%20icon.png" alt="YouTube" class="mobile-nav-icon">
+                </a>
+                <a href="#" class="mobile-icon-link" data-url="tiktok">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20TT%20icon.png" alt="TikTok" class="mobile-nav-icon">
+                </a>
+                <a href="#" class="mobile-icon-link" data-url="instagram">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Insta%20icon.png" alt="Instagram" class="mobile-nav-icon">
+                </a>
+                <a href="#" class="mobile-icon-link" data-url="podcast">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Podcast%20icon.png" alt="Podcast" class="mobile-nav-icon">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-container">
+        <!-- Mobile Menu Button INSIDE the scroll container -->
+            <div style="position: fixed; top: 15px; right: -3px; z-index: 999999999; display: none;" id="mobile-menu-button-inside">
+                <button id="mobile-menu-btn" style="background: none; border: none; cursor: pointer; padding: 0; transition: transform 0.1s ease;">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20mobile%20menu%20asset.png" alt="Menu" style="height: 16vw; min-height: 60px; max-height: 120px; width: auto; filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.5));" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none; color: #00ffff; font-size: 28px; font-weight: bold; background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 5px; border: 2px solid #00ffff;">☰</div>
+                </button>
+            </div>
+        <!-- First background with logo -->
+        <section class="hero-section">
+            <section class="hero"></section>
+            <div id="logo-overlay">
+                <div class="logo-container">
+                    <div class="logo-image"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Second background - short black section -->
+        <section class="hero-section">
+            <section class="hero-second"></section>
+        </section>
+        
+        <!-- Third background - video section -->
+        <section class="hero-section">
+            <section class="hero-third">
+                <video id="background-video" class="background-video" autoplay loop muted playsinline>
+                    <source src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/1209.mp4" type="video/mp4">
+                </video>
+                <!-- Bottom Right Logo -->
+                <div class="bottom-right-logo">
+                    <a href="/credits" class="logo-link">
+                        <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Heart_shaped_Logo_white.png" alt="CVSTIS BLUE Logo" class="bottom-logo">
+                    </a>
+                </div>
+                <!-- Phone Number Section -->
+                <div class="phone-number-section">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/pls_txt_me_asset.png" alt="Text Me Please" class="text-me-asset">
+                    <a href="#" class="phone-number-link" id="superphone-link">
+                        <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/superphone_asset_number.png" alt="Phone Number" class="phone-number-asset">
+                    </a>
+                </div>
+            </section>
+        </section>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

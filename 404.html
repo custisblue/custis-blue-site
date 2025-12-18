@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVSTIS BLUE</title>
+    <script>
+        // Handle clean URLs (remove .html extension)
+        var path = window.location.pathname;
+        
+        // Remove leading slash and trailing slash
+        path = path.replace(/^\/|\/$/g, '');
+        
+        // Map clean URLs to HTML files
+        var routes = {
+            '': 'index.html',
+            'credits': 'credits.html',
+            'store': 'store.html'
+        };
+        
+        // If path is empty or matches a route, load the HTML file content
+        if (routes[path] !== undefined || path === '') {
+            var targetFile = routes[path] || routes[''];
+            // Use fetch to load the HTML content and replace the page
+            fetch('/' + targetFile)
+                .then(response => response.text())
+                .then(html => {
+                    document.open();
+                    document.write(html);
+                    document.close();
+                    // Update the URL without .html
+                    if (path) {
+                        history.replaceState(null, null, '/' + path);
+                    } else {
+                        history.replaceState(null, null, '/');
+                    }
+                })
+                .catch(() => {
+                    // Fallback to redirect if fetch fails
+                    window.location.replace('/' + targetFile);
+                });
+        } else {
+            // If it's a 404, redirect to home
+            window.location.replace('/home.html');
+        }
+    </script>
+</head>
+<body>
+    <p>Loading...</p>
+</body>
+</html>
+

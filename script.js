@@ -247,9 +247,9 @@ function setupSmoothScroll() {
 
 // Social Media Links Configuration
 const socialLinks = {
-    music: 'store.html', // Store coming soon page
+    music: '/store', // Store coming soon page
     support: 'https://ko-fi.com/custisblue', // Support/Ko-fi URL
-    store: 'store.html', // Store coming soon page
+    store: '/store', // Store coming soon page
     youtube: 'https://www.youtube.com/@Custisblue_', // YouTube channel URL
     tiktok: 'https://www.tiktok.com/@custisblue', // TikTok profile URL
     instagram: 'https://www.instagram.com/custisblue/', // Instagram profile URL

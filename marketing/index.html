@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Portfolio - Custis Donner</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Heart_shaped_Logo_w_background.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000 url('https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Black%20background.png') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        
+        .portfolio-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #cccccc;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+        
+        .intro-section {
+            background: rgba(0, 255, 255, 0.05);
+            border-left: 3px solid #00ffff;
+            padding: 30px;
+            margin-bottom: 50px;
+            border-radius: 4px;
+        }
+        
+        .intro-section p {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        
+        .intro-section p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #00ffff;
+            margin-bottom: 25px;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .proof-item {
+            background: rgba(0, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+        
+        .proof-item strong {
+            color: #00ffff;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .proof-item span {
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+        
+        .analytics-placeholder {
+            background: rgba(0, 255, 255, 0.05);
+            border: 2px dashed rgba(0, 255, 255, 0.3);
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            color: #888888;
+        }
+        
+        .case-study {
+            background: rgba(0, 255, 255, 0.03);
+            padding: 35px;
+            margin-bottom: 40px;
+            border-radius: 4px;
+            border-left: 4px solid #00ffff;
+        }
+        
+        .case-study-title {
+            font-size: 1.4rem;
+            color: #00ffff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .case-study-section {
+            margin-bottom: 20px;
+        }
+        
+        .case-study-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .case-study-section strong {
+            color: #00ffff;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+        
+        .case-study-section p {
+            color: #e0e0e0;
+            margin-bottom: 12px;
+        }
+        
+        .case-study-section p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .insight-box {
+            background: rgba(0, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+        
+        .insight-box strong {
+            color: #00ffff;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .insight-box p {
+            color: #ffffff;
+            font-style: italic;
+        }
+        
+        .contact-section {
+            background: rgba(0, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .contact-section p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-section a {
+            color: #00ffff;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.5);
+            transition: border-bottom-color 0.3s ease;
+        }
+        
+        .contact-section a:hover {
+            border-bottom-color: #00ffff;
+        }
+        
+        .logo-link {
+            display: inline-block;
+            text-decoration: none;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            margin: 40px auto 0;
+            position: relative;
+            text-align: center;
+        }
+        
+        .logo-link:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+        
+        .logo-link img {
+            height: 3.5vw;
+            min-height: 35px;
+            max-height: 70px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
+        }
+        
+        .take-me-home-asset {
+            position: absolute;
+            bottom: -30px;
+            right: -120px;
+            height: 28px !important;
+            max-height: 28px !important;
+            min-height: 0px !important;
+            width: auto !important;
+            filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.4));
+            pointer-events: none;
+            opacity: 0;
+            transform: rotate(-15deg) translateY(5px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        
+        .logo-link:hover .take-me-home-asset {
+            opacity: 1;
+            transform: rotate(-15deg) translateY(0);
+            height: 28px !important;
+            max-height: 28px !important;
+        }
+        
+        /* Ensure desktop size is not overridden by mobile */
+        @media (min-width: 769px) {
+            .take-me-home-asset {
+                height: 3px !important;
+                max-height: 3px !important;
+            }
+        }
+        
+        /* Mobile blinking animation */
+        @media (max-width: 768px) {
+            .logo-link .take-me-home-asset,
+            .take-me-home-asset {
+                animation: blinkTakeMeHome 7s infinite;
+                animation-delay: 3s;
+                transform: rotate(-10deg) !important;
+                transition: opacity 1.5s ease-in-out;
+                height: 24px !important;
+                max-height: 24px !important;
+                min-height: 0px !important;
+                width: auto !important;
+                bottom: -35px !important;
+            }
+            
+            .logo-link:hover .take-me-home-asset {
+                transform: rotate(-10deg) !important;
+            }
+        }
+        
+        @keyframes blinkTakeMeHome {
+            0%, 2% {
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            52% {
+                opacity: 1;
+            }
+            55%, 100% {
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            .portfolio-container {
+                padding: 40px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .intro-section,
+            .case-study,
+            .contact-section {
+                padding: 25px 20px;
+            }
+            
+            .proof-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-link {
+                display: block;
+                text-align: center;
+            }
+            
+            .logo-link img {
+                height: 9vw;
+                min-height: 40px;
+                max-height: 55px;
+            }
+            
+            .logo-link .take-me-home-asset {
+                height: 24px !important;
+                max-height: 24px !important;
+                min-height: 0px !important;
+                width: auto !important;
+                bottom: -35px !important;
+                right: -120px;
+            }
+            
+            .take-me-home-asset {
+                height: 24px !important;
+                max-height: 24px !important;
+                min-height: 0px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio-container">
+        <h1>Marketing Portfolio</h1>
+        <div class="subtitle">Custis Donner</div>
+        
+        <div class="intro-section">
+            <p><strong>Marketing & Content Professional (Consumer Brands)</strong></p>
+            <p>I'm a marketing and content professional with experience growing consumer audiences and developing brand voice across social platforms. I'm seeking an entry-level role in brand, social, or community marketing at a consumer-focused company.</p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Proof</h2>
+            <div class="proof-grid">
+                <div class="proof-item">
+                    <strong>Audience Reach</strong>
+                    <span>50M+ TikTok views<br>(last 12 months)</span>
+                </div>
+                <div class="proof-item">
+                    <strong>Focus</strong>
+                    <span>Social content, brand voice, community</span>
+                </div>
+                <div class="proof-item">
+                    <strong>Strengths</strong>
+                    <span>Creative intuition, iteration, audience insight, Gen-Z leaning platform awareness</span>
+                </div>
+            </div>
+            
+            <h3 style="color: #00ffff; font-size: 1.3rem; margin-bottom: 15px; margin-top: 40px;">TikTok Analytics — Last 12 Months</h3>
+            <p style="color: #cccccc; margin-bottom: 20px;">Over 50M total views driven through consistent short-form content and audience-aware iteration.</p>
+            <div style="background: rgba(0, 255, 255, 0.05); padding: 20px; border-radius: 4px; margin-bottom: 30px; text-align: center;">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/analytics2025.png" alt="TikTok Analytics" style="max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);">
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Select Work</h2>
+            
+            <div class="case-study">
+                <h3 class="case-study-title">Case Study 1 — Audience Growth, Content Strategy & Creative Testing</h3>
+                
+                <div class="case-study-section">
+                    <strong>Goal:</strong>
+                    <p>Grow and engage a consumer audience through short-form social content.</p>
+                </div>
+                
+                <div class="case-study-section">
+                    <strong>Action:</strong>
+                    <p>Developed recurring content formats designed for retention and shareability</p>
+                    <p>Tested trend-based and original concepts to understand what resonated</p>
+                    <p>Adjusted pacing, tone, and storytelling based on performance signals and audience feedback</p>
+                </div>
+                
+                <div class="case-study-section">
+                    <strong>Result:</strong>
+                    <p>Consistent audience growth</p>
+                    <p>Strong engagement relative to reach</p>
+                    <p>Clear understanding of which creative approaches performed best</p>
+                </div>
+                
+                <div class="insight-box">
+                    <strong>Insight:</strong>
+                    <p>Fast iteration paired with strong taste leads to more effective content than over-planning.</p>
+                </div>
+            </div>
+            
+            <div class="case-study">
+                <h3 class="case-study-title">Case Study 2 — Brand Voice & Identity</h3>
+                
+                <div class="case-study-section">
+                    <strong>Goal:</strong>
+                    <p>Build a recognizable and consistent brand presence across platforms.</p>
+                </div>
+                
+                <div class="case-study-section">
+                    <strong>Action:</strong>
+                    <p>Defined and maintained a cohesive visual and tonal identity</p>
+                    <p>Ensured consistency across content, messaging, and presentation</p>
+                    <p>Balanced authenticity with intentional branding decisions</p>
+                </div>
+                
+                <div class="case-study-section">
+                    <strong>Result:</strong>
+                    <p>Strong brand recognition</p>
+                    <p>Increased audience trust and retention</p>
+                </div>
+                
+                <div class="insight-box">
+                    <strong>Insight:</strong>
+                    <p>Consistency builds familiarity, which strengthens long-term audience connection.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">What I'm Looking For</h2>
+            <p style="color: #e0e0e0; font-size: 1.1rem; line-height: 1.8;">An entry-level role on a brand, social, or community marketing team where I can contribute creatively and continue learning within a collaborative environment.</p>
+        </div>
+        
+        <div class="contact-section">
+            <h2 class="section-title" style="border: none; padding: 0; margin-bottom: 25px;">Contact</h2>
+            <p><strong>Email:</strong> <a href="mailto:custisblue@gmail.com">custisblue@gmail.com</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/custisdonner/" target="_blank">linkedin.com/in/custisdonner</a></p>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="/" class="logo-link">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Heart_shaped_Logo_white.png" alt="CVSTIS BLUE Logo">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/take_me_home_asset.png" alt="Take Me Home" class="take-me-home-asset">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+

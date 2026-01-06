@@ -243,17 +243,12 @@
             .take-me-home-asset {
                 animation: blinkTakeMeHome 7s infinite;
                 animation-delay: 3s;
-                transform: rotate(-10deg) !important;
                 transition: opacity 1.5s ease-in-out;
                 height: 24px !important;
                 max-height: 24px !important;
                 min-height: 0px !important;
                 width: auto !important;
-                bottom: -35px !important;
-            }
-            
-            .logo-link:hover .take-me-home-asset {
-                transform: rotate(-10deg) !important;
+                bottom: -20px !important;
             }
         }
         
@@ -302,6 +297,7 @@
             .logo-link {
                 display: block;
                 text-align: center;
+                position: relative;
             }
             
             .logo-link img {
@@ -315,8 +311,14 @@
                 max-height: 24px !important;
                 min-height: 0px !important;
                 width: auto !important;
-                bottom: -35px !important;
-                right: -120px;
+                bottom: -20px !important;
+                right: auto !important;
+                left: calc(50% + 40px) !important;
+                transform: translateX(-50%) rotate(-10deg) !important;
+            }
+            
+            .logo-link:hover .take-me-home-asset {
+                transform: translateX(-50%) rotate(-10deg) !important;
             }
             
             .take-me-home-asset {
@@ -436,7 +438,6 @@
         <div style="text-align: center;">
             <a href="/" class="logo-link">
                 <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Heart_shaped_Logo_white.png" alt="CVSTIS BLUE Logo">
-                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/take_me_home_asset.png" alt="Take Me Home" class="take-me-home-asset">
             </a>
         </div>
     </div>

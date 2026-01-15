@@ -60,152 +60,41 @@
             font-weight: 300;
         }
         
-        .intro-section {
+        .message-section {
             background: rgba(0, 255, 255, 0.05);
             border-left: 3px solid #00ffff;
-            padding: 30px;
+            padding: 50px 40px;
             margin-bottom: 50px;
             border-radius: 4px;
+            text-align: center;
         }
         
-        .intro-section p {
-            font-size: 1.1rem;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-        
-        .intro-section p:last-child {
-            margin-bottom: 0;
-        }
-        
-        .section {
-            margin-bottom: 60px;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
+        .message-section h2 {
+            font-size: 2rem;
             color: #00ffff;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .message-section p {
+            font-size: 1.2rem;
+            color: #ffffff;
             margin-bottom: 25px;
-            font-weight: 600;
-            border-bottom: 2px solid rgba(0, 255, 255, 0.3);
-            padding-bottom: 10px;
+            line-height: 1.8;
         }
         
-        .proof-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .proof-item {
-            background: rgba(0, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 4px;
-            border: 1px solid rgba(0, 255, 255, 0.2);
-        }
-        
-        .proof-item strong {
-            color: #00ffff;
-            font-size: 1.1rem;
-            display: block;
-            margin-bottom: 8px;
-        }
-        
-        .proof-item span {
-            color: #cccccc;
-            font-size: 0.95rem;
-        }
-        
-        .analytics-placeholder {
-            background: rgba(0, 255, 255, 0.05);
-            border: 2px dashed rgba(0, 255, 255, 0.3);
-            padding: 60px 20px;
-            text-align: center;
-            border-radius: 4px;
-            margin-bottom: 30px;
-            color: #888888;
-        }
-        
-        .case-study {
-            background: rgba(0, 255, 255, 0.03);
-            padding: 35px;
-            margin-bottom: 40px;
-            border-radius: 4px;
-            border-left: 4px solid #00ffff;
-        }
-        
-        .case-study-title {
-            font-size: 1.4rem;
-            color: #00ffff;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        .case-study-section {
-            margin-bottom: 20px;
-        }
-        
-        .case-study-section:last-child {
+        .message-section p:last-child {
             margin-bottom: 0;
         }
         
-        .case-study-section strong {
-            color: #00ffff;
-            display: block;
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-        }
-        
-        .case-study-section p {
-            color: #e0e0e0;
-            margin-bottom: 12px;
-        }
-        
-        .case-study-section p:last-child {
-            margin-bottom: 0;
-        }
-        
-        .insight-box {
-            background: rgba(0, 255, 255, 0.08);
-            padding: 20px;
-            border-radius: 4px;
-            margin-top: 20px;
-            border: 1px solid rgba(0, 255, 255, 0.2);
-        }
-        
-        .insight-box strong {
-            color: #00ffff;
-            display: block;
-            margin-bottom: 10px;
-        }
-        
-        .insight-box p {
-            color: #ffffff;
-            font-style: italic;
-        }
-        
-        .contact-section {
-            background: rgba(0, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 4px;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .contact-section p {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-        
-        .contact-section a {
+        .message-section a {
             color: #00ffff;
             text-decoration: none;
             border-bottom: 1px solid rgba(0, 255, 255, 0.5);
             transition: border-bottom-color 0.3s ease;
         }
         
-        .contact-section a:hover {
+        .message-section a:hover {
             border-bottom-color: #00ffff;
         }
         
@@ -300,14 +189,16 @@
                 font-size: 1rem;
             }
             
-            .intro-section,
-            .case-study,
-            .contact-section {
-                padding: 25px 20px;
+            .message-section {
+                padding: 40px 25px;
             }
             
-            .proof-grid {
-                grid-template-columns: 1fr;
+            .message-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .message-section p {
+                font-size: 1rem;
             }
             
             .logo-link {
@@ -348,107 +239,11 @@
 <body>
     <div class="portfolio-container">
         <h1>Marketing Portfolio</h1>
-        <div class="subtitle">Custis Donner</div>
         
-        <div class="intro-section">
-            <p><strong>Marketing & Content Professional (Consumer Brands)</strong></p>
-            <p>I'm a marketing and content professional with experience growing consumer audiences and developing brand voice across social platforms. I'm seeking an entry-level role in brand, social, or community marketing at a consumer-focused company.</p>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-title">Proof</h2>
-            <div class="proof-grid">
-                <div class="proof-item">
-                    <strong>Audience Reach</strong>
-                    <span>50M+ TikTok views<br>(last 12 months)</span>
-                </div>
-                <div class="proof-item">
-                    <strong>Focus</strong>
-                    <span>Social content, brand voice, community</span>
-                </div>
-                <div class="proof-item">
-                    <strong>Strengths</strong>
-                    <span>Creative intuition, iteration, audience insight, Gen-Z leaning platform awareness</span>
-                </div>
-            </div>
-            
-            <h3 style="color: #00ffff; font-size: 1.3rem; margin-bottom: 15px; margin-top: 40px;">TikTok Analytics — Last 12 Months</h3>
-            <p style="color: #cccccc; margin-bottom: 20px;">Over 50M total views driven through consistent short-form content and audience-aware iteration.</p>
-            <div style="background: rgba(0, 255, 255, 0.05); padding: 20px; border-radius: 4px; margin-bottom: 30px; text-align: center; overflow: hidden;">
-                <div style="overflow: hidden; border-radius: 4px; margin-top: -10%;">
-                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/analytics2025.png" alt="TikTok Analytics" style="width: 100%; height: auto; display: block; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); margin-top: -10%;">
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-title">Select Work</h2>
-            
-            <div class="case-study">
-                <h3 class="case-study-title">Case Study 1 — Audience Growth, Content Strategy & Creative Testing</h3>
-                
-                <div class="case-study-section">
-                    <strong>Goal:</strong>
-                    <p>Grow and engage a consumer audience through short-form social content.</p>
-                </div>
-                
-                <div class="case-study-section">
-                    <strong>Action:</strong>
-                    <p>Developed recurring content formats designed for retention and shareability</p>
-                    <p>Tested trend-based and original concepts to understand what resonated</p>
-                    <p>Adjusted pacing, tone, and storytelling based on performance signals and audience feedback</p>
-                </div>
-                
-                <div class="case-study-section">
-                    <strong>Result:</strong>
-                    <p>Consistent audience growth</p>
-                    <p>Strong engagement relative to reach</p>
-                    <p>Clear understanding of which creative approaches performed best</p>
-                </div>
-                
-                <div class="insight-box">
-                    <strong>Insight:</strong>
-                    <p>Fast iteration paired with strong taste leads to more effective content than over-planning.</p>
-                </div>
-            </div>
-            
-            <div class="case-study">
-                <h3 class="case-study-title">Case Study 2 — Brand Voice & Identity</h3>
-                
-                <div class="case-study-section">
-                    <strong>Goal:</strong>
-                    <p>Build a recognizable and consistent brand presence across platforms.</p>
-                </div>
-                
-                <div class="case-study-section">
-                    <strong>Action:</strong>
-                    <p>Defined and maintained a cohesive visual and tonal identity</p>
-                    <p>Ensured consistency across content, messaging, and presentation</p>
-                    <p>Balanced authenticity with intentional branding decisions</p>
-                </div>
-                
-                <div class="case-study-section">
-                    <strong>Result:</strong>
-                    <p>Strong brand recognition</p>
-                    <p>Increased audience trust and retention</p>
-                </div>
-                
-                <div class="insight-box">
-                    <strong>Insight:</strong>
-                    <p>Consistency builds familiarity, which strengthens long-term audience connection.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-title">What I'm Looking For</h2>
-            <p style="color: #e0e0e0; font-size: 1.1rem; line-height: 1.8;">An entry-level role on a brand, social, or community marketing team where I can contribute creatively and continue learning within a collaborative environment.</p>
-        </div>
-        
-        <div class="contact-section">
-            <h2 class="section-title" style="border: none; padding: 0; margin-bottom: 25px;">Contact</h2>
-            <p><strong>Email:</strong> <a href="mailto:custisblue@gmail.com">custisblue@gmail.com</a></p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/custisdonner/" target="_blank">linkedin.com/in/custisdonner</a></p>
+        <div class="message-section">
+            <h2>Portfolio Under Construction</h2>
+            <p>This portfolio is currently being updated. If you're interested in working together, please feel free to reach out via email at <a href="mailto:custisblue@gmail.com">custisblue@gmail.com</a>.</p>
+            <p>In the meantime, feel free to explore my custom website by clicking the logo below.</p>
         </div>
         
         <div style="text-align: center;">

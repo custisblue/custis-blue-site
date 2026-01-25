@@ -253,7 +253,7 @@ const socialLinks = {
     youtube: 'https://www.youtube.com/@Custisblue_', // YouTube channel URL
     tiktok: 'https://www.tiktok.com/@custisblue', // TikTok profile URL
     instagram: 'https://www.instagram.com/custisblue/', // Instagram profile URL
-    podcast: 'https://www.youtube.com/@custisblueyapcast' // Podcast URL
+    discord: 'https://discord.gg/8CkrXqCHcS' // Discord server (Blueberry Grove)
 };
 
 // Initialize social media links

@@ -249,7 +249,7 @@ function setupSmoothScroll() {
 const socialLinks = {
     music: 'https://distrokid.com/hyperfollow/custisblue/the-yearn', // DistroKid HyperFollow page
     support: 'https://ko-fi.com/custisblue', // Support/Ko-fi URL
-    store: '/store', // Store coming soon page
+    store: 'store/index.html', // Store page — full path works when opening files locally
     youtube: 'https://www.youtube.com/@Custisblue_', // YouTube channel URL
     tiktok: 'https://www.tiktok.com/@custisblue', // TikTok profile URL
     instagram: 'https://www.instagram.com/custisblue/', // Instagram profile URL
@@ -258,16 +258,25 @@ const socialLinks = {
 
 // Initialize social media links
 function initializeSocialLinks() {
+    // Resolve store URL from site root so it works from any page (avoids .../store/store/index.html when already on store)
+    let storeHref = socialLinks.store;
+    if (!storeHref.startsWith('http')) {
+        const curr = window.location.href;
+        const inStore = /\/store\/index\.html$/i.test(curr) || /\/store\/?$/i.test(curr);
+        const base = inStore ? curr.replace(/\/store\/index\.html$|\/store\/?$/i, (m) => curr.slice(0, curr.length - m.length)) : curr.replace(/[^/]*$/, '');
+        storeHref = new URL('store/index.html', base.endsWith('/') ? base : base + '/').href;
+    }
+    
     Object.keys(socialLinks).forEach(platform => {
         const links = document.querySelectorAll(`[data-url="${platform}"]`);
+        const url = platform === 'store' ? storeHref : socialLinks[platform];
         links.forEach(link => {
-            link.href = socialLinks[platform];
+            link.href = url;
             // Only open external links (http:// or https://) in new tabs
-            if (socialLinks[platform] !== '#' && 
-                (socialLinks[platform].startsWith('http://') || socialLinks[platform].startsWith('https://'))) {
-                link.target = '_blank';
+            if (url !== '#' && (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('file://'))) {
+                link.target = platform === 'store' ? '_self' : '_blank';
             } else {
-                link.target = '_self'; // Internal links open in same tab
+                link.target = '_self';
             }
         });
     });

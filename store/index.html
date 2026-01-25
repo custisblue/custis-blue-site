@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store - CVSTIS BLUE</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Heart_shaped_Logo_w_background.png">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Store page specific */
+        body.store-page {
+            background: #000 url('https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Black%20background.png') no-repeat center center;
+            background-size: cover;
+            min-height: 100vh;
+        }
+        .store-page .store-main {
+            padding: 100px 24px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .store-page .store-intro {
+            text-align: center;
+            max-width: 560px;
+            margin: 0 auto 40px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: clamp(0.9rem, 2.2vw, 1rem);
+            line-height: 1.6;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+        }
+        .store-page .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+        @media (min-width: 900px) {
+            .store-page .product-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 24px;
+            }
+        }
+        .store-page .product-card {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .store-page .product-image {
+            width: 100%;
+            aspect-ratio: 1;
+            display: block;
+        }
+        .store-page .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .store-page .buy-btn {
+            display: inline-block;
+            text-decoration: none;
+            line-height: 0;
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+        .store-page .buy-btn img {
+            height: clamp(36px, 10vw, 56px);
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.3));
+        }
+        .store-page .buy-btn:hover {
+            transform: scale(1.05);
+        }
+        .store-page .buy-btn:hover img {
+            filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.5));
+        }
+        .store-page .store-footer {
+            text-align: center;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+        .store-page .logo-link {
+            display: inline-block;
+            text-decoration: none;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            position: relative;
+        }
+        .store-page .logo-link:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+        .store-page .logo-link img.logo-img {
+            height: 3.5vw;
+            min-height: 35px;
+            max-height: 70px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
+        }
+        .store-page .take-me-home-asset {
+            position: absolute;
+            bottom: -30px;
+            right: -120px;
+            height: 28px !important;
+            max-height: 28px !important;
+            min-height: 0 !important;
+            width: auto !important;
+            filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.4));
+            pointer-events: none;
+            opacity: 0;
+            transform: rotate(-15deg) translateY(5px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .store-page .logo-link:hover .take-me-home-asset {
+            opacity: 1;
+            transform: rotate(-15deg) translateY(0);
+        }
+        @media (max-width: 768px) {
+            .store-page .store-main { padding: 110px 16px 40px; }
+            .store-page .store-title { margin-bottom: 28px; }
+            .store-page .store-title-img { height: clamp(70px, 18vw, 140px); }
+            .store-page .product-grid { margin-bottom: 28px; }
+            .store-page .store-footer { padding-top: 8px; padding-bottom: 20px; }
+            .store-page .logo-link img.logo-img {
+                height: 9vw;
+                min-height: 40px;
+                max-height: 55px;
+            }
+            .store-page .logo-link .take-me-home-asset,
+            .store-page .take-me-home-asset {
+                animation: blinkTakeMeHome 7s infinite;
+                animation-delay: 3s;
+                transform: rotate(-10deg) !important;
+                height: 24px !important;
+                max-height: 24px !important;
+                bottom: -35px !important;
+            }
+            .store-page .logo-link:hover .take-me-home-asset {
+                transform: rotate(-10deg) !important;
+            }
+        }
+        @keyframes blinkTakeMeHome {
+            0%, 2% { opacity: 0; }
+            5% { opacity: 1; }
+            52% { opacity: 1; }
+            55%, 100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="store-page">
+    <!-- Top Navigation - same as home -->
+    <div class="top-nav-assets">
+        <div class="left-assets">
+            <a href="#" class="asset-link" data-url="music">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Music%20Asset.png" alt="Music" class="nav-asset">
+            </a>
+            <a href="/store" class="asset-link" data-url="store">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Store%20Asset.png" alt="Store" class="nav-asset">
+            </a>
+            <a href="#" class="asset-link support-link" data-url="support">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/support2_asset.png" alt="Support" class="nav-asset support-asset">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/help%20me%20stay%20indy%20corrected.png" alt="Stay Indie" class="support-hover-tooltip">
+            </a>
+        </div>
+        <div class="right-icons">
+            <a href="#" class="icon-link" data-url="youtube">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20YT%20icon.png" alt="YouTube" class="nav-icon">
+            </a>
+            <a href="#" class="icon-link" data-url="tiktok">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20TT%20icon.png" alt="TikTok" class="nav-icon">
+            </a>
+            <a href="#" class="icon-link" data-url="instagram">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Insta%20icon.png" alt="Instagram" class="nav-icon">
+            </a>
+            <a href="#" class="icon-link" data-url="podcast">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Podcast%20icon.png" alt="Podcast" class="nav-icon">
+            </a>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+        <div style="position: absolute; top: 15px; right: -3px; z-index: 999999999;">
+            <button id="close-mobile-menu" style="background: none; border: none; cursor: pointer; padding: 0; transition: transform 0.1s ease;" onclick="closeMobileMenu()">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20X%20button%20icon.png" alt="Close" style="height: 16vw; min-height: 60px; max-height: 120px; width: auto; filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.5));">
+            </button>
+        </div>
+        <div class="mobile-menu-content">
+            <div class="mobile-assets">
+                <a href="#" class="mobile-asset-link" data-url="music">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Music%20Asset.png" alt="Music" class="mobile-nav-asset">
+                </a>
+                <a href="/store" class="mobile-asset-link" data-url="store">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Store%20Asset.png" alt="Store" class="mobile-nav-asset">
+                </a>
+                <a href="#" class="mobile-asset-link support-link-mobile" data-url="support">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/support2_asset.png" alt="Support" class="mobile-nav-asset">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/help%20me%20stay%20indy%20corrected.png" alt="Stay Indie" class="support-mobile-tooltip">
+                </a>
+            </div>
+            <div class="mobile-icons">
+                <a href="#" class="mobile-icon-link" data-url="youtube">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20YT%20icon.png" alt="YouTube" class="mobile-nav-icon">
+                </a>
+                <a href="#" class="mobile-icon-link" data-url="tiktok">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20TT%20icon.png" alt="TikTok" class="mobile-nav-icon">
+                </a>
+                <a href="#" class="mobile-icon-link" data-url="instagram">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Insta%20icon.png" alt="Instagram" class="mobile-nav-icon">
+                </a>
+                <a href="#" class="mobile-icon-link" data-url="podcast">
+                    <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20Podcast%20icon.png" alt="Podcast" class="mobile-nav-icon">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu button -->
+    <div style="position: fixed; top: 15px; right: -3px; z-index: 999999999; display: none;" id="mobile-menu-button-inside">
+        <button id="mobile-menu-btn" style="background: none; border: none; cursor: pointer; padding: 0;">
+            <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20mobile%20menu%20asset.png" alt="Menu" style="height: 16vw; min-height: 60px; max-height: 120px; width: auto; filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.5));">
+        </button>
+    </div>
+
+    <main class="store-main">
+        <p class="store-intro">Only 10 in existence. Each polaroid is one of a kind and ships with a handwritten letter - and one of them includes a surprise.</p>
+
+        <div class="product-grid">
+            <!-- Product 1 - Replace href with your PayPal Buy Now link -->
+            <article class="product-card">
+                <div class="product-image"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/polaroid%201%20of%2010.jpg" alt="Polaroid 1"></div>
+                <a href="https://www.paypal.com/ncp/payment/JCH6WPHPGVTNY" class="buy-btn" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/buy%20button%20asset.png" alt="Buy"></a>
+            </article>
+            <article class="product-card">
+                <div class="product-image"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/polaroid%202%20of%2010.jpg" alt="Polaroid 2"></div>
+                <a href="https://www.paypal.com/ncp/payment/HDUAUPCLAR2VJ" class="buy-btn" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/buy%20button%20asset.png" alt="Buy"></a>
+            </article>
+            <article class="product-card">
+                <div class="product-image"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/polaroid%203%20of%2010.jpg" alt="Polaroid 3"></div>
+                <a href="https://www.paypal.com/ncp/payment/97K554EFB7WCE" class="buy-btn" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/buy%20button%20asset.png" alt="Buy"></a>
+            </article>
+            <article class="product-card">
+                <div class="product-image"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/polaroid%204%20of%2010.jpg" alt="Polaroid 4"></div>
+                <a href="https://www.paypal.com/ncp/payment/FQ7UYPTHZ3D34" class="buy-btn" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/buy%20button%20asset.png" alt="Buy"></a>
+            </article>
+            <article class="product-card">
+                <div class="product-image"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/polaroid%205%20of%2010.jpg" alt="Polaroid 5"></div>
+                <a href="https://www.paypal.com/ncp/payment/6HABY8R3EGBX2" class="buy-btn" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/buy%20button%20asset.png" alt="Buy"></a>
+            </article>
+            <article class="product-card">
+                <div class="product-image"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/polaroid%206%20of%2010.jpg" alt="Polaroid 6"></div>
+                <a href="https://www.paypal.com/ncp/payment/Y82JD5SWZHGNL" class="buy-btn" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/buy%20button%20asset.png" alt="Buy"></a>
+            </article>
+            <article class="product-card">
+                <div class="product-image"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/polaroid%207%20of%2010.jpg" alt="Polaroid 7"></div>
+                <a href="https://www.paypal.com/ncp/payment/J2ZVBBPGB78EG" class="buy-btn" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/buy%20button%20asset.png" alt="Buy"></a>
+            </article>
+            <article class="product-card">
+                <div class="product-image"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/polaroid%208%20of%2010.jpg" alt="Polaroid 8"></div>
+                <a href="https://www.paypal.com/ncp/payment/PBP3ZW6FNF588" class="buy-btn" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/buy%20button%20asset.png" alt="Buy"></a>
+            </article>
+            <article class="product-card">
+                <div class="product-image"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/polaroid%209%20of%2010.jpg" alt="Polaroid 9"></div>
+                <a href="https://www.paypal.com/ncp/payment/CPL5VA3Y8BAGN" class="buy-btn" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/buy%20button%20asset.png" alt="Buy"></a>
+            </article>
+            <article class="product-card">
+                <div class="product-image"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/polaroid%2010%20of%2010.jpg" alt="Polaroid 10"></div>
+                <a href="https://www.paypal.com/ncp/payment/Z3JQ7CDDDBH66" class="buy-btn" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/buy%20button%20asset.png" alt="Buy"></a>
+            </article>
+        </div>
+
+        <footer class="store-footer">
+            <a href="/" class="logo-link">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Heart_shaped_Logo_white.png" alt="CVSTIS BLUE" class="logo-img">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/take_me_home_asset.png" alt="Take me home" class="take-me-home-asset">
+            </a>
+        </footer>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>

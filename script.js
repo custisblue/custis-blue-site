@@ -249,7 +249,7 @@ function setupSmoothScroll() {
 const socialLinks = {
     music: 'https://distrokid.com/hyperfollow/custisblue/the-yearn', // DistroKid HyperFollow page
     support: 'https://ko-fi.com/custisblue', // Support/Ko-fi URL
-    store: 'store/index.html', // Store page — full path works when opening files locally
+    store: 'store/', // Store page — /store in address bar
     youtube: 'https://www.youtube.com/@Custisblue_', // YouTube channel URL
     tiktok: 'https://www.tiktok.com/@custisblue', // TikTok profile URL
     instagram: 'https://www.instagram.com/custisblue/', // Instagram profile URL
@@ -264,7 +264,7 @@ function initializeSocialLinks() {
         const curr = window.location.href;
         const inStore = /\/store\/index\.html$/i.test(curr) || /\/store\/?$/i.test(curr);
         const base = inStore ? curr.replace(/\/store\/index\.html$|\/store\/?$/i, (m) => curr.slice(0, curr.length - m.length)) : curr.replace(/[^/]*$/, '');
-        storeHref = new URL('store/index.html', base.endsWith('/') ? base : base + '/').href;
+        storeHref = new URL('store/', base.endsWith('/') ? base : base + '/').href;
     }
     
     Object.keys(socialLinks).forEach(platform => {

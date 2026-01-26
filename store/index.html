@@ -18,6 +18,48 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+        .store-page .store-nav-center {
+            flex: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: all;
+        }
+        .store-page .store-nav-center .logo-link img.logo-img {
+            height: 3.6vw;
+            min-height: 35px;
+            max-height: 70px;
+        }
+        @media (max-width: 768px) {
+            .store-page .store-nav-center .logo-link img.logo-img {
+                height: 9vw;
+                min-height: 40px;
+                max-height: 55px;
+            }
+        }
+        .store-mobile-home {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .store-page .store-mobile-home {
+                display: block;
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 999999998;
+            }
+            .store-page .store-mobile-home .logo-link {
+                display: block;
+            }
+            .store-page .store-mobile-home .logo-img {
+                height: 15vw;
+                min-height: 58px;
+                max-height: 96px;
+                width: auto;
+                filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
+            }
+        }
         .store-page .store-intro {
             text-align: center;
             max-width: 560px;
@@ -203,6 +245,11 @@
                 <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/help%20me%20stay%20indy%20corrected.png" alt="Stay Indie" class="support-hover-tooltip">
             </a>
         </div>
+        <div class="store-nav-center">
+            <a href="/" class="logo-link">
+                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Heart_shaped_Logo_white.png" alt="CVSTIS BLUE" class="logo-img">
+            </a>
+        </div>
         <div class="right-icons">
             <a href="#" class="icon-link" data-url="youtube">
                 <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/CBW%20YT%20icon.png" alt="YouTube" class="nav-icon">
@@ -254,6 +301,13 @@
                 </a>
             </div>
         </div>
+    </div>
+
+    <!-- Mobile home logo (store page, visible only on mobile) -->
+    <div class="store-mobile-home" aria-hidden="false">
+        <a href="/" class="logo-link">
+            <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Heart_shaped_Logo_white.png" alt="Home" class="logo-img">
+        </a>
     </div>
 
     <!-- Mobile menu button -->
@@ -328,13 +382,6 @@
                 <div class="sold-overlay"><span>Sold</span></div>
             </article>
         </div>
-
-        <footer class="store-footer">
-            <a href="/" class="logo-link">
-                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/Heart_shaped_Logo_white.png" alt="CVSTIS BLUE" class="logo-img">
-                <img src="https://raw.githubusercontent.com/custisblue/custis-blue-assets/main/take_me_home_asset.png" alt="Take me home" class="take-me-home-asset">
-            </a>
-        </footer>
     </main>
 
     <script src="../script.js"></script>

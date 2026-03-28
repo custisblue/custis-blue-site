@@ -247,9 +247,9 @@ function setupSmoothScroll() {
 
 // Social Media Links Configuration
 const socialLinks = {
-    music: 'https://distrokid.com/hyperfollow/custisblue/the-yearn', // DistroKid HyperFollow page
+    music: 'https://distrokid.com/hyperfollow/custisblue/heart', // DistroKid HyperFollow — HEART!
     support: 'https://ko-fi.com/custisblue', // Support/Ko-fi URL
-    store: 'store/', // Store page — /store in address bar
+    store: '/store/', // Absolute from domain root (avoids bad href when URL has no trailing slash)
     youtube: 'https://www.youtube.com/@Custisblue_', // YouTube channel URL
     tiktok: 'https://www.tiktok.com/@custisblue', // TikTok profile URL
     instagram: 'https://www.instagram.com/custisblue/', // Instagram profile URL
@@ -258,13 +258,35 @@ const socialLinks = {
 
 // Initialize social media links
 function initializeSocialLinks() {
-    // Resolve store URL from site root so it works from any page (avoids .../store/store/index.html when already on store)
     let storeHref = socialLinks.store;
-    if (!storeHref.startsWith('http')) {
-        const curr = window.location.href;
-        const inStore = /\/store\/index\.html$/i.test(curr) || /\/store\/?$/i.test(curr);
-        const base = inStore ? curr.replace(/\/store\/index\.html$|\/store\/?$/i, (m) => curr.slice(0, curr.length - m.length)) : curr.replace(/[^/]*$/, '');
-        storeHref = new URL('store/', base.endsWith('/') ? base : base + '/').href;
+    if (storeHref.startsWith('http://') || storeHref.startsWith('https://')) {
+        // full URL, use as-is
+    } else if (storeHref.startsWith('/')) {
+        // Root-absolute path — correct for custisblue.com (fixes bare URLs like https://domain.com with no path)
+        const path = storeHref.endsWith('/') ? storeHref : storeHref + '/';
+        if (window.location.protocol === 'file:') {
+            const base = window.location.href.replace(/[/\\][^/\\]*$/, '/');
+            storeHref = new URL('store/index.html', base).href;
+        } else {
+            storeHref = new URL(path, window.location.origin).href;
+        }
+    } else {
+        // Relative e.g. "store/" — resolve from pathname only (never strip from full href; that breaks hostnames)
+        const u = new URL(window.location.href);
+        let p = u.pathname;
+        if (/\/store\/index\.html$/i.test(p)) {
+            p = p.slice(0, -'/store/index.html'.length) || '/';
+        } else if (/\/store\/?$/i.test(p)) {
+            p = p.replace(/\/store\/?$/i, '') || '/';
+        } else {
+            const segs = p.split('/').filter(Boolean);
+            const last = segs[segs.length - 1];
+            if (last && /\.[a-z0-9]{1,8}$/i.test(last)) {
+                segs.pop();
+            }
+            p = segs.length ? '/' + segs.join('/') + '/' : '/';
+        }
+        storeHref = new URL('store/', u.origin + p).href;
     }
     
     Object.keys(socialLinks).forEach(platform => {
